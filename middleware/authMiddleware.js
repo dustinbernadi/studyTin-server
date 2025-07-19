@@ -1,6 +1,7 @@
+require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const User = require("../models/user"); // ⬅️ tambahkan ini
-const SECRET_KEY = "studyTinSecret123"; // Sebaiknya pindah ke .env
+const SECRET_KEY = process.env.SECRET_KEY; // Sebaiknya pindah ke .env
 
 const authenticateUser = async (req, res, next) => {
   const authHeader = req.headers.authorization;
