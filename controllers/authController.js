@@ -1,11 +1,12 @@
-
+require("dotenv").config();
 const bcrypt = require("bcrypt");
 
 // Additional dependencies
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 // Middleware to authenticate user using JWT
-const SECRET_KEY = "studyTinSecret123";
+const SECRET_KEY = process.env.SECRET_KEY;
+
 
 // Register a new user
 const register = async (req, res) => {

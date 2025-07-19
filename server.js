@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const router = require("./routes/auth");
@@ -17,9 +18,7 @@ app.use(express.json());
 app.use("/api/auth", router);
 
 // MongoDB connection
-mongoose.connect(
-  "mongodb+srv://dustinbernadi:dustin04042007@studytin-cluster.62tf6o7.mongodb.net/studytin?retryWrites=true&w=majority&appName=studyTin-cluster"
-)
+mongoose.connect(process.env.MONGODB_URL)
 .then(() => console.log("MongoDB connected!"))
 .catch(err => console.log("Connection error:", err));
 
